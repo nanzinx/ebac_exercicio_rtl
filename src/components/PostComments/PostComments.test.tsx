@@ -13,13 +13,10 @@ describe('Teste para o componente PostComment', () => {
     });
 
     test('Must add two comments', () => {
-        const { debug } = render(<PostComment />);
-
+        render(<PostComment />);
     for (let i = 0; i < comments.length; i++) {
         const textArea = screen.getByRole('textbox');
-
         fireEvent.change(textArea, { target: { value: comments[i].comment } });
-
         fireEvent.click(screen.getByTestId('btn-add-comment'));
     }
         const renderedComments = screen.getAllByRole('listitem'); 
